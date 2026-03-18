@@ -19,6 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const toggleRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
   const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null);
   const restoreFocusOnCloseRef = useRef(true);
 
@@ -54,18 +55,45 @@ export default function Navbar() {
     if (!mobileOpen) return;
 
     const previousOverflow = document.body.style.overflow;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
     const toggleButton = toggleRef.current;
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileOpen(false);
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMobileOpen(false);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusable = menuRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (!focusable || focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const activeElement = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey && activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
+    document.documentElement.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
     window.setTimeout(() => firstMobileLinkRef.current?.focus(), 0);
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
+      document.documentElement.style.overflow = previousDocumentOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
       if (restoreFocusOnCloseRef.current) {
         toggleButton?.focus();
       }
@@ -90,9 +118,9 @@ export default function Navbar() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto"
         style={{ maxWidth: 'var(--content-max)' }}
-      >
+        >
         <div
-          className="rounded-[1.4rem] border backdrop-blur-xl transition-all duration-300"
+          className="nav-shell rounded-[1.4rem] border transition-all duration-300"
           style={{
             background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.7)',
             borderColor: scrolled ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.08)',
@@ -183,6 +211,7 @@ export default function Navbar() {
             <button
               type="button"
               ref={toggleRef}
+              aria-haspopup="dialog"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
               aria-controls={mobileMenuId}
@@ -210,13 +239,15 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.22 }}
               id={mobileMenuId}
+              ref={menuRef}
+              role="dialog"
+              aria-modal="true"
               aria-label="Mobile navigation"
-              className="md:hidden mt-2 rounded-[1.4rem] border overflow-hidden"
+              className="mobile-nav-panel md:hidden mt-2 rounded-[1.4rem] border overflow-hidden"
               style={{
                 background: 'rgba(0,0,0,0.94)',
                 borderColor: 'rgba(255,255,255,0.08)',
                 boxShadow: '0 24px 54px rgba(0,0,0,0.32)',
-                backdropFilter: 'blur(18px)',
               }}
             >
               <div className="px-4 py-4 flex flex-col gap-1">

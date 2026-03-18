@@ -137,8 +137,8 @@ export default function FlagshipProject() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 22, filter: 'blur(10px)' }}
-          animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+          initial={{ opacity: 0, y: 22 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.82, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
           className="section-block-md max-w-5xl mx-auto"
         >

@@ -6,11 +6,10 @@ import MouseParallaxPanel from '@/components/ui/MouseParallaxPanel';
 import { scrollToId } from '@/lib/scroll';
 
 const revealUp = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
       delay,
       duration: 0.78,
@@ -65,17 +64,17 @@ const systemCards = [
   {
     title: 'Signal capture',
     detail: 'Gather intent before humans spend effort.',
-    position: 'left-[6%] top-[18%] sm:left-[8%] sm:top-[20%]',
+    position: 'left-[6%] top-[18%] xl:left-[8%] xl:top-[20%]',
   },
   {
     title: 'Grounding',
     detail: 'Keep system behavior tied to real context.',
-    position: 'right-[6%] top-[18%] sm:right-[8%] sm:top-[20%]',
+    position: 'right-[6%] top-[18%] xl:right-[8%] xl:top-[20%]',
   },
   {
     title: 'Operator handoff',
     detail: 'Return context, next actions, and clear ownership.',
-    position: 'left-1/2 bottom-[25%] -translate-x-1/2 sm:bottom-[27%]',
+    position: 'left-1/2 bottom-[24%] -translate-x-1/2 xl:bottom-[27%]',
   },
 ];
 
@@ -154,8 +153,8 @@ function HeadingLine({
   return (
     <span className="block overflow-hidden">
       <motion.span
-        initial={reduceMotion ? { y: '0%', filter: 'blur(0px)' } : { y: '108%', filter: 'blur(10px)' }}
-        animate={{ y: '0%', filter: 'blur(0px)' }}
+        initial={reduceMotion ? { y: '0%' } : { y: '108%' }}
+        animate={{ y: '0%' }}
         transition={reduceMotion ? { duration: 0 } : { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
         className={`block ${className ?? ''}`}
       >
@@ -277,8 +276,8 @@ export default function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 26, filter: 'blur(12px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          initial={{ opacity: 0, y: 26 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.95, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="hero-surface-wide hero-surface-block mx-auto"
         >
@@ -326,14 +325,13 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="surface-shell-body surface-shell-grid grid xl:grid-cols-[0.92fr_minmax(0,1.2fr)_0.9fr] xl:gap-5">
+            <div className="surface-shell-body surface-shell-grid grid lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.12fr)_minmax(0,0.9fr)] lg:items-start lg:gap-5">
               <div className="surface-shell-grid grid">
                 <div
-                  className="surface-panel-block-lg rounded-[1.55rem] card-hover"
+                  className="surface-panel-block-lg hero-frosted-block rounded-[1.55rem] card-hover"
                   style={{
                     background: 'rgba(0,0,0,0.72)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(18px)',
                   }}
                 >
                   <div className="panel-kicker mb-4">System priorities</div>
@@ -359,11 +357,10 @@ export default function Hero() {
                 </div>
 
                 <div
-                  className="surface-panel-block-lg rounded-[1.55rem]"
+                  className="surface-panel-block-lg hero-frosted-block rounded-[1.55rem]"
                   style={{
                     background: 'rgba(0,0,0,0.7)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(18px)',
                   }}
                 >
                   <div className="panel-kicker mb-3">Current direction</div>
@@ -374,123 +371,151 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div
-                className="relative min-h-[23rem] sm:min-h-[24rem] xl:min-h-[25rem] rounded-[1.7rem] border"
-                style={{
-                  background: 'rgba(0,0,0,0.72)',
-                  borderColor: 'rgba(255,255,255,0.08)',
-                  backdropFilter: 'blur(18px)',
-                }}
-              >
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute inset-0 grid-bg opacity-[0.08]" />
-                  <motion.div
-                    className="absolute inset-x-[14%] top-[34%] h-px"
-                    style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent)' }}
-                    animate={reduceMotion ? undefined : { opacity: [0.16, 0.42, 0.16] }}
-                    transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                  <motion.div
-                    className="absolute left-1/2 top-[18%] bottom-[20%] w-px -translate-x-1/2"
-                    style={{ background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.14), transparent)' }}
-                    animate={reduceMotion ? undefined : { opacity: [0.12, 0.28, 0.12] }}
-                    transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                </div>
+              <div className="surface-shell-grid grid">
+                <div
+                  className="hero-visual-panel hero-frosted-block rounded-[1.55rem] border p-[var(--surface-pad-body)] lg:hidden"
+                  style={{
+                    background: 'rgba(0,0,0,0.72)',
+                    borderColor: 'rgba(255,255,255,0.08)',
+                  }}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="panel-kicker">Workflow flow</div>
+                    <div className="text-[0.68rem] font-medium tracking-[0.08em]" style={{ color: 'var(--text-faint)' }}>
+                      qualify → ground → hand off
+                    </div>
+                  </div>
 
-                <div className="absolute left-[var(--surface-pad-x)] right-[var(--surface-pad-x)] top-[var(--surface-pad-body)] flex items-center justify-between gap-3">
-                  <div className="panel-kicker">Workflow map</div>
-                  <div className="text-[0.72rem] font-medium tracking-[0.08em]" style={{ color: 'var(--text-faint)' }}>
-                    qualify → ground → hand off
+                  <div className="surface-section-stack mt-4">
+                    {systemCards.map(({ title, detail }, index) => (
+                      <motion.div
+                        key={title}
+                        initial={{ opacity: 0, y: 14 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          opacity: { duration: 0.5, delay: 0.24 + index * 0.08 },
+                          y: { duration: 0.5, delay: 0.24 + index * 0.08, ease: [0.22, 1, 0.36, 1] },
+                        }}
+                        className="hero-system-module rounded-[1.2rem] px-4 py-3.5"
+                        style={{
+                          background: 'rgba(255,255,255,0.03)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                        }}
+                      >
+                        <div
+                          className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] mb-1.5"
+                          style={{ color: 'var(--text-ghost)' }}
+                        >
+                          Module 0{index + 1}
+                        </div>
+                        <div className="text-sm font-semibold mb-1.5" style={{ color: 'var(--text)' }}>
+                          {title}
+                        </div>
+                        <p className="text-[0.78rem] leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+                          {detail}
+                        </p>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
 
-                <svg viewBox="0 0 100 100" className="absolute inset-[16%_10%_23%_10%] h-auto w-auto">
-                  {systemPaths.map((path, index) => (
-                    <motion.path
-                      key={path}
-                      d={path}
-                      fill="none"
-                      stroke="rgba(255,255,255,0.24)"
-                      strokeWidth="0.7"
-                      strokeLinecap="round"
-                      strokeDasharray="2.8 5.6"
-                      animate={reduceMotion ? undefined : { strokeDashoffset: [0, -22] }}
-                      transition={{ duration: 5 + index * 0.8, repeat: Infinity, ease: 'linear' }}
+                <div
+                  className="hero-visual-panel hero-frosted-block relative hidden min-h-[25rem] rounded-[1.7rem] border lg:block"
+                  style={{
+                    background: 'rgba(0,0,0,0.72)',
+                    borderColor: 'rgba(255,255,255,0.08)',
+                  }}
+                >
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute inset-0 grid-bg opacity-[0.08]" />
+                    <motion.div
+                      className="absolute inset-x-[14%] top-[34%] h-px"
+                      style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent)' }}
+                      animate={reduceMotion ? undefined : { opacity: [0.16, 0.42, 0.16] }}
+                      transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut' }}
                     />
+                    <motion.div
+                      className="absolute left-1/2 top-[18%] bottom-[20%] w-px -translate-x-1/2"
+                      style={{ background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.14), transparent)' }}
+                      animate={reduceMotion ? undefined : { opacity: [0.12, 0.28, 0.12] }}
+                      transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  </div>
+
+                  <div className="absolute left-[var(--surface-pad-x)] right-[var(--surface-pad-x)] top-[var(--surface-pad-body)] flex items-center justify-between gap-3">
+                    <div className="panel-kicker">Workflow map</div>
+                    <div className="text-[0.72rem] font-medium tracking-[0.08em]" style={{ color: 'var(--text-faint)' }}>
+                      qualify → ground → hand off
+                    </div>
+                  </div>
+
+                  <svg viewBox="0 0 100 100" className="absolute inset-[16%_10%_18%_10%] h-auto w-auto">
+                    {systemPaths.map((path, index) => (
+                      <motion.path
+                        key={path}
+                        d={path}
+                        fill="none"
+                        stroke="rgba(255,255,255,0.24)"
+                        strokeWidth="0.7"
+                        strokeLinecap="round"
+                        strokeDasharray="2.8 5.6"
+                        animate={reduceMotion ? undefined : { strokeDashoffset: [0, -22] }}
+                        transition={{ duration: 5 + index * 0.8, repeat: Infinity, ease: 'linear' }}
+                      />
+                    ))}
+                  </svg>
+
+                  {systemNodes.map((node, index) => (
+                    <div
+                      key={`${node.left}-${node.top}`}
+                      className="absolute"
+                      style={{ left: node.left, top: node.top, transform: 'translate(-50%, -50%)' }}
+                    >
+                      <motion.div
+                        className="absolute inset-0 rounded-full border"
+                        style={{ borderColor: 'rgba(255,255,255,0.14)' }}
+                        animate={reduceMotion ? undefined : { scale: [1, 1.65, 1.65], opacity: [0.32, 0, 0] }}
+                        transition={{
+                          duration: 2.6 + index * 0.16,
+                          repeat: Infinity,
+                          delay: index * 0.14,
+                          ease: 'easeOut',
+                        }}
+                      />
+                      <div
+                        className="relative z-10 h-3 w-3 rounded-full"
+                        style={{ background: 'rgba(255,255,255,0.84)', boxShadow: '0 0 0 5px rgba(255,255,255,0.03)' }}
+                      />
+                    </div>
                   ))}
-                </svg>
 
-                {systemNodes.map((node, index) => (
-                  <div
-                    key={`${node.left}-${node.top}`}
-                    className="absolute"
-                    style={{ left: node.left, top: node.top, transform: 'translate(-50%, -50%)' }}
-                  >
+                  {systemCards.map(({ title, detail, position }, index) => (
                     <motion.div
-                      className="absolute inset-0 rounded-full border"
-                      style={{ borderColor: 'rgba(255,255,255,0.14)' }}
-                      animate={reduceMotion ? undefined : { scale: [1, 1.65, 1.65], opacity: [0.32, 0, 0] }}
-                      transition={{
-                        duration: 2.6 + index * 0.16,
-                        repeat: Infinity,
-                        delay: index * 0.14,
-                        ease: 'easeOut',
-                      }}
-                    />
-                    <div
-                      className="relative z-10 h-3 w-3 rounded-full"
-                      style={{ background: 'rgba(255,255,255,0.84)', boxShadow: '0 0 0 5px rgba(255,255,255,0.03)' }}
-                    />
-                  </div>
-                ))}
-
-                {systemCards.map(({ title, detail, position }, index) => (
-                  <motion.div
-                    key={title}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      opacity: { duration: 0.55, delay: 0.24 + index * 0.08 },
-                      y: { duration: 0.55, delay: 0.24 + index * 0.08, ease: [0.22, 1, 0.36, 1] },
-                    }}
-                    className={`absolute ${position} w-[8.75rem] sm:w-[10.75rem] rounded-[1.2rem] px-3.5 py-3`}
-                    style={{
-                      background: 'rgba(0,0,0,0.76)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      backdropFilter: 'blur(18px)',
-                    }}
-                  >
-                    <div
-                      className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] mb-1.5"
-                      style={{ color: 'var(--text-ghost)' }}
-                    >
-                      Module 0{index + 1}
-                    </div>
-                    <div className="text-sm font-semibold mb-1.5" style={{ color: 'var(--text)' }}>
-                      {title}
-                    </div>
-                    <p className="text-[0.74rem] leading-relaxed" style={{ color: 'var(--text-faint)' }}>
-                      {detail}
-                    </p>
-                  </motion.div>
-                ))}
-
-                <div className="absolute left-[var(--surface-pad-x)] right-[var(--surface-pad-x)] bottom-[var(--surface-pad-body)] grid gap-2.5 sm:grid-cols-3">
-                  {introMarkers.map((item, index) => (
-                    <motion.div
-                      key={item}
-                      initial={{ opacity: 0, y: 12 }}
+                      key={title}
+                      initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.45, delay: 0.34 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                      className="rounded-[1rem] px-3 py-2.5 text-center text-[0.72rem] font-medium"
+                      transition={{
+                        opacity: { duration: 0.55, delay: 0.24 + index * 0.08 },
+                        y: { duration: 0.55, delay: 0.24 + index * 0.08, ease: [0.22, 1, 0.36, 1] },
+                      }}
+                      className={`hero-system-module absolute ${position} w-[10rem] xl:w-[10.75rem] rounded-[1.2rem] px-3.5 py-3`}
                       style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        color: 'var(--text-sec)',
+                        background: 'rgba(0,0,0,0.76)',
+                        border: '1px solid rgba(255,255,255,0.08)',
                       }}
                     >
-                      {item}
+                      <div
+                        className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] mb-1.5"
+                        style={{ color: 'var(--text-ghost)' }}
+                      >
+                        Module 0{index + 1}
+                      </div>
+                      <div className="text-sm font-semibold mb-1.5" style={{ color: 'var(--text)' }}>
+                        {title}
+                      </div>
+                      <p className="text-[0.74rem] leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+                        {detail}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
@@ -498,11 +523,10 @@ export default function Hero() {
 
               <div className="surface-shell-grid grid">
                 <div
-                  className="surface-panel-block-lg rounded-[1.55rem]"
+                  className="surface-panel-block-lg hero-frosted-block rounded-[1.55rem]"
                   style={{
                     background: 'rgba(0,0,0,0.72)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(18px)',
                   }}
                 >
                   <div className="flex items-center justify-between gap-3 mb-4">
@@ -534,11 +558,10 @@ export default function Hero() {
                 </div>
 
                 <div
-                  className="surface-panel-block-lg rounded-[1.55rem] card-hover"
+                  className="surface-panel-block-lg hero-frosted-block rounded-[1.55rem] card-hover"
                   style={{
                     background: 'rgba(0,0,0,0.7)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(18px)',
                   }}
                 >
                   <div className="panel-kicker mb-3">Builder profile</div>

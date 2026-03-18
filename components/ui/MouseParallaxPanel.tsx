@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import {
   motion,
   MotionStyle,
@@ -26,6 +26,7 @@ export default function MouseParallaxPanel({
   style,
 }: MouseParallaxPanelProps) {
   const reduceMotion = useReducedMotion();
+  const [interactive, setInteractive] = useState(false);
 
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
@@ -39,9 +40,29 @@ export default function MouseParallaxPanel({
 
   const glare = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 28%, transparent 72%)`;
 
-  if (reduceMotion) {
+  useEffect(() => {
+    if (reduceMotion || typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+      setInteractive(false);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(min-width: 64rem) and (hover: hover) and (pointer: fine)');
+    const updateInteractive = () => setInteractive(mediaQuery.matches);
+
+    updateInteractive();
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', updateInteractive);
+      return () => mediaQuery.removeEventListener('change', updateInteractive);
+    }
+
+    mediaQuery.addListener(updateInteractive);
+    return () => mediaQuery.removeListener(updateInteractive);
+  }, [reduceMotion]);
+
+  if (!interactive) {
     return (
-      <div className={className} style={{ perspective, ...(style as CSSProperties) }}>
+      <div className={className} style={style as CSSProperties}>
         {children}
       </div>
     );
