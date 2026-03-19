@@ -55,7 +55,7 @@ export default function About() {
     <section id="about" className="section-shell section-shell-tight">
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
-      <div ref={ref} className="section-container section-container-scene section-frame section-frame-scene">
+      <div ref={ref} className="section-container section-container-scene section-frame">
         <div className="section-intro section-intro-scene">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -70,7 +70,7 @@ export default function About() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="section-title section-title-lockup section-block-sm text-[clamp(2.35rem,4.2vw,3.55rem)]"
+            className="section-title section-title-lockup section-title-support section-block-sm"
             style={{ color: 'var(--text)' }}
           >
             <span className="section-title-line">Current focus, operating model,</span>

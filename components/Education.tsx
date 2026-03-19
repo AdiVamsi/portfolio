@@ -52,7 +52,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="section-title section-title-lockup section-block-sm text-[clamp(2.5rem,4.6vw,3.8rem)]"
+            className="section-title section-title-lockup section-title-support section-block-sm"
             style={{ color: 'var(--text)' }}
           >
             <span className="section-title-line">Academic foundation,</span>

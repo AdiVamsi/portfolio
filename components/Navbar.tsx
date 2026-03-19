@@ -6,10 +6,10 @@ import { Menu, X } from 'lucide-react';
 import { scrollToHash, scrollToTop } from '@/lib/scroll';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Project', href: '#flagship' },
+  { label: 'Flagship', href: '#flagship' },
+  { label: 'About', href: '#about' },
   { label: 'Agent Hub', href: '#agent-hub' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -110,7 +110,7 @@ export default function Navbar() {
   const mobileMenuId = 'primary-navigation-mobile';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3">
       <motion.nav
         aria-label="Primary"
         initial={{ y: -26, opacity: 0 }}
@@ -118,16 +118,16 @@ export default function Navbar() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto"
         style={{ maxWidth: 'var(--content-max)' }}
-        >
+      >
         <div
-          className="nav-shell rounded-[1.4rem] border transition-all duration-300"
+          className="nav-shell rounded-[1.25rem] border transition-all duration-300"
           style={{
-            background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.7)',
-            borderColor: scrolled ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.08)',
-            boxShadow: scrolled ? '0 14px 38px rgba(0,0,0,0.3)' : '0 8px 24px rgba(0,0,0,0.18)',
+            background: scrolled ? 'rgba(0,0,0,0.84)' : 'rgba(0,0,0,0.62)',
+            borderColor: scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.07)',
+            boxShadow: scrolled ? '0 10px 28px rgba(0,0,0,0.24)' : '0 6px 18px rgba(0,0,0,0.14)',
           }}
         >
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-14 px-4 sm:px-5">
             <motion.button
               type="button"
               aria-label="Scroll to top"
@@ -137,10 +137,10 @@ export default function Navbar() {
               className="flex items-center gap-3 cursor-pointer"
             >
               <div
-                className="w-9 h-9 rounded-[0.95rem] flex items-center justify-center text-sm font-semibold"
+                className="w-8 h-8 rounded-[0.85rem] flex items-center justify-center text-sm font-semibold"
                 style={{
-                  background: 'rgba(255,255,255,0.08)',
-                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: 'rgba(255,255,255,0.07)',
+                  border: '1px solid rgba(255,255,255,0.1)',
                   color: 'var(--text)',
                 }}
               >
@@ -148,18 +148,18 @@ export default function Navbar() {
               </div>
               <div className="hidden sm:block">
                 <div
-                  className="text-[0.68rem] font-semibold uppercase tracking-[0.22em]"
+                  className="text-[0.64rem] font-semibold uppercase tracking-[0.22em]"
                   style={{ color: 'var(--text-ghost)' }}
                 >
                   Portfolio
                 </div>
-                <div className="text-sm font-medium" style={{ color: 'var(--text-sec)' }}>
+                <div className="text-[0.92rem] font-medium" style={{ color: 'var(--text-sec)' }}>
                   Adi Vamsi Sai
                 </div>
               </div>
             </motion.button>
 
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-5">
               {navLinks.map((link) => {
                 const id = link.href.replace('#', '');
                 const active = activeSection === id;
@@ -173,7 +173,7 @@ export default function Navbar() {
                       event.preventDefault();
                       go(link.href);
                     }}
-                    className="group relative py-1 text-sm font-medium transition-colors cursor-pointer"
+                    className="group relative py-1 text-[0.92rem] font-medium transition-colors cursor-pointer"
                     style={{ color: active ? 'var(--text)' : 'var(--text-muted)' }}
                   >
                     {link.label}
@@ -202,7 +202,7 @@ export default function Navbar() {
                 href="mailto:adivamsi88@gmail.com"
                 whileHover={{ scale: 1.005 }}
                 whileTap={{ scale: 0.98 }}
-                className="button-secondary px-5 py-2.5 text-sm font-semibold"
+                className="button-secondary px-4.5 py-2 text-sm font-semibold"
               >
                 <span className="relative z-10">Contact</span>
               </motion.a>
@@ -219,7 +219,7 @@ export default function Navbar() {
                 restoreFocusOnCloseRef.current = true;
                 setMobileOpen((open) => !open);
               }}
-              className="md:hidden w-10 h-10 rounded-[0.95rem] flex items-center justify-center transition-colors"
+              className="md:hidden w-9 h-9 rounded-[0.85rem] flex items-center justify-center transition-colors"
               style={{
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.08)',

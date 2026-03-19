@@ -70,7 +70,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="section-title section-title-lockup section-block-sm text-[clamp(2.7rem,5vw,4.15rem)]"
+            className="section-title section-title-lockup section-title-major section-block-sm"
             style={{ color: 'var(--text)' }}
           >
             <span className="section-title-line">Experience building</span>

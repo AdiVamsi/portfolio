@@ -37,7 +37,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="contact" className="section-shell section-shell-open">
+    <section id="contact" className="section-shell section-shell-tight">
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
       <div ref={ref} className="section-container">
@@ -55,7 +55,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="section-title section-title-lockup section-block-sm text-[clamp(2.65rem,5vw,4.1rem)]"
+            className="section-title section-title-lockup section-title-support section-block-sm"
             style={{ color: 'var(--text)' }}
           >
             <span className="section-title-line">Open to building</span>
@@ -79,7 +79,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.68, delay: 0.24 }}
-          className="section-block-lg surface-card rounded-[1.8rem] p-6 max-w-4xl mx-auto text-center"
+          className="section-block-md surface-card rounded-[1.8rem] p-5 sm:p-6 max-w-4xl mx-auto text-center"
         >
           <div className="panel-kicker mb-3">
             Best fit
@@ -90,7 +90,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="section-block-md grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="section-block-md grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {contactLinks.map(({ icon: Icon, label, value, href, description, cta }, index) => (
             <motion.a
               key={label}

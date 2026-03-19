@@ -16,12 +16,12 @@ export default function Home() {
       <PageAtmosphere />
       <Navbar />
       <Hero />
-      <About />
       <TechExpertise />
       <Experience />
-      <Education />
       <FlagshipProject />
       <AgentHub />
+      <About />
+      <Education />
       <Contact />
       <Footer />
     </main>

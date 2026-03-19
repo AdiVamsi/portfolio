@@ -6,10 +6,10 @@ import { GitHubIcon, LinkedInIcon } from '@/components/ui/SocialIcons';
 import { scrollToHash, scrollToTop } from '@/lib/scroll';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Project', href: '#flagship' },
+  { label: 'Flagship', href: '#flagship' },
+  { label: 'About', href: '#about' },
   { label: 'Agent Hub', href: '#agent-hub' },
   { label: 'Contact', href: '#contact' },
 ];
