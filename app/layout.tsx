@@ -20,37 +20,41 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Adi Vamsi Sai Maddirala | AI Workflow Systems Builder',
+  title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
   description:
-    'Adi Vamsi Sai Maddirala builds practical AI systems, backend products, workflow automation, and operator-facing software with product-minded engineering judgment.',
+    'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation pipelines. 3+ years across backend systems and applied AI. Open to AI Engineer and Backend Engineer roles across the U.S.',
   keywords: [
     'Adi Vamsi Sai',
-    'AI Workflow Systems Builder',
     'AI Engineer',
     'Backend Engineer',
+    'LLM Engineer',
+    'Applied AI Engineer',
+    'Python Developer',
     'LLM Applications',
     'Workflow Automation',
     'AI Agents',
-    'Python Developer',
-    'SME Automation',
-    'LangChain',
-    'LangGraph',
+    'Node.js',
+    'PostgreSQL',
+    'REST APIs',
+    'Spring Boot',
+    'STEM OPT',
+    'San Antonio',
   ],
-  authors: [{ name: 'Adi Vamsi Sai Maddirala' }],
-  creator: 'Adi Vamsi Sai Maddirala',
+  authors: [{ name: 'Adi Vamsi Sai' }],
+  creator: 'Adi Vamsi Sai',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'Adi Vamsi Sai Maddirala | AI Workflow Systems Builder',
+    title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Building practical AI systems, workflow software, backend products, and operator tools that solve real operational problems.',
-    siteName: 'Adi Vamsi Sai Portfolio',
+      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation. Open to AI Engineer and Backend Engineer roles.',
+    siteName: 'Adi Vamsi Sai — Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adi Vamsi Sai Maddirala | AI Workflow Systems Builder',
+    title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Building practical AI systems, backend software, workflow automation, and operator tools for real use.',
+      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation.',
   },
   robots: {
     index: true,
