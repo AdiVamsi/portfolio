@@ -12,6 +12,7 @@ import ChatComposer from './ChatComposer';
 import ChatLanding from './ChatLanding';
 import ChatMessageContent from './ChatMessageContent';
 import ToolResultCard from './ToolResultCard';
+import FluidCursor from '@/components/FluidCursor';
 
 export default function ChatInterface() {
   const router = useRouter();
@@ -69,10 +70,52 @@ export default function ChatInterface() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      <header className="sticky top-0 z-20 border-b px-4 py-4 backdrop-blur-xl"
+    <div className="relative min-h-screen" style={{ background: 'var(--background)' }}>
+      <FluidCursor />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-10">
+        <div
+          className="absolute left-1/2 top-24 bottom-28 w-[calc(100%-3rem)] -translate-x-1/2 lg:w-[64vw] lg:max-w-[68rem]"
+        >
+          <div
+            className="absolute inset-0 rounded-[3rem]"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.36) 12%, rgba(255,255,255,0.78) 24%, rgba(255,255,255,0.92) 50%, rgba(255,255,255,0.78) 76%, rgba(255,255,255,0.36) 88%, rgba(255,255,255,0) 100%)',
+              boxShadow: '0 28px 90px rgba(0,0,0,0.04)',
+              opacity: 0.94,
+              WebkitMaskImage:
+                'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 7%, rgba(0,0,0,1) 16%, rgba(0,0,0,1) 84%, rgba(0,0,0,0.8) 93%, transparent 100%)',
+              maskImage:
+                'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 7%, rgba(0,0,0,1) 16%, rgba(0,0,0,1) 84%, rgba(0,0,0,0.8) 93%, transparent 100%)',
+            }}
+          />
+          <div
+            className="absolute inset-x-[4%] inset-y-[2%] rounded-[2.6rem]"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(255,255,255,0.48), rgba(255,255,255,0.72) 22%, rgba(250,250,250,0.84) 58%, rgba(255,255,255,0.9) 100%)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28)',
+              opacity: 0.7,
+            }}
+          />
+        </div>
+        <div
+          className="absolute inset-x-0 top-0 h-32"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0))',
+          }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-48"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.9))',
+          }}
+        />
+      </div>
+
+      <header className="sticky top-0 z-30 border-b px-4 py-4 backdrop-blur-xl"
         style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.82)' }}>
-        <div className="mx-auto flex w-full max-w-5xl items-center gap-3">
+        <div className="chat-shell flex w-full items-center gap-3">
           <button
             onClick={() => router.push('/')}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border transition-opacity hover:opacity-75"
@@ -126,8 +169,8 @@ export default function ChatInterface() {
       </header>
 
       {error && (
-        <div className="px-4 pt-4">
-          <div className="mx-auto flex w-full max-w-5xl items-start gap-3 rounded-2xl border px-4 py-3"
+        <div className="relative z-20 px-4 pt-4">
+          <div className="chat-shell flex w-full items-start gap-3 rounded-2xl border px-4 py-3"
             style={{ borderColor: 'rgba(220,38,38,0.18)', background: 'rgba(220,38,38,0.05)', color: 'var(--text)' }}>
             <AlertCircle size={18} className="mt-0.5 shrink-0" />
             <div>
@@ -140,12 +183,12 @@ export default function ChatInterface() {
         </div>
       )}
 
-      <main className="px-4">
-        <div className="mx-auto w-full max-w-5xl">
+      <main id="main-content" className="relative z-20 px-4">
+        <div className="chat-shell">
           {!hasMessages ? (
             <ChatLanding onSelect={handleQuickAction} />
           ) : (
-            <div className="py-8">
+            <div className="chat-thread py-8">
               <AnimatePresence initial={false}>
                 {messages.map((message, index) => {
                   if (message.role === 'user') {
@@ -163,7 +206,7 @@ export default function ChatInterface() {
                         className="mb-6 flex justify-end"
                       >
                         <div
-                          className="max-w-2xl rounded-[1.75rem] rounded-tr-md px-5 py-4 text-sm leading-7"
+                          className="w-full max-w-2xl rounded-[1.75rem] rounded-tr-md px-5 py-4 text-sm leading-7"
                           style={{
                             background: 'var(--accent-dim)',
                             color: 'var(--text)',
@@ -237,7 +280,7 @@ export default function ChatInterface() {
 
                         {text && (
                           <div
-                            className="max-w-3xl rounded-[1.85rem] border px-5 py-4"
+                            className="w-full rounded-[1.85rem] border px-5 py-4"
                             style={{
                               borderColor: 'var(--border)',
                               background: 'var(--surface)',

@@ -5,7 +5,7 @@ import type { FormEvent } from 'react';
 
 const QUICK_ACTIONS = [
   { label: 'Me', question: 'Tell me about yourself' },
-  { label: 'Projects', question: 'What projects have you built?' },
+  { label: 'Projects', question: 'What are your flagship AI and portfolio projects?' },
   { label: 'Skills', question: 'What are your technical skills?' },
   { label: 'Experience', question: 'Walk me through your work experience' },
   { label: 'Contact', question: 'How can I contact you?' },
@@ -32,9 +32,9 @@ export default function ChatComposer({
   hasMessages,
 }: ChatComposerProps) {
   return (
-    <div className="sticky bottom-0 z-20 border-t px-4 py-4 backdrop-blur-xl"
-      style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.78)' }}>
-      <div className="mx-auto flex w-full max-w-4xl flex-wrap gap-2 pb-3">
+    <div className="sticky bottom-0 z-30 border-t px-4 py-4 backdrop-blur-xl"
+      style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.84)' }}>
+      <div className="chat-shell flex w-full flex-wrap gap-2 pb-3">
         {QUICK_ACTIONS.map((item) => (
           <button
             key={item.label}
@@ -58,7 +58,7 @@ export default function ChatComposer({
         )}
       </div>
 
-      <form onSubmit={onSubmit} className="mx-auto flex w-full max-w-4xl items-center gap-3 rounded-[1.75rem] border px-4 py-3"
+      <form onSubmit={onSubmit} className="chat-shell flex w-full items-center gap-3 rounded-[1.75rem] border px-4 py-3"
         style={{ borderColor: 'var(--border-accent)', background: 'var(--surface)', boxShadow: 'var(--shadow-card)' }}>
         <input
           value={input}

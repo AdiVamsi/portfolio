@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
   description:
-    'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation pipelines. 3+ years across backend systems and applied AI. Open to AI Engineer and Backend Engineer roles across the U.S.',
+    'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI products including RAG, text-to-SQL, summarization, and prompt-chaining apps. 3+ years across backend systems and applied AI. Open to AI Engineer and Backend Engineer roles across the U.S.',
   keywords: [
     'Adi Vamsi Sai',
     'AI Engineer',
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     'Applied AI Engineer',
     'Python Developer',
     'LLM Applications',
+    'RAG',
+    'Text-to-SQL',
+    'Prompt Chaining',
+    'AI Portfolio',
     'Workflow Automation',
     'AI Agents',
     'Node.js',
@@ -47,14 +51,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation. Open to AI Engineer and Backend Engineer roles.',
+      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI apps across RAG, text-to-SQL, summarization, and automation.',
     siteName: 'Adi Vamsi Sai — Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and automation.',
+      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI apps.',
   },
   robots: {
     index: true,

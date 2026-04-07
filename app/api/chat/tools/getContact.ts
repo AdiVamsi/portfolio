@@ -7,7 +7,7 @@ export const getContact = tool({
   execute: async () => {
     return {
       email: 'adivamsi88@gmail.com',
-      linkedin: 'https://linkedin.com/in/adi-vamsi-sai-326667128/',
+      linkedin: 'https://www.linkedin.com/in/adi-vamsi-sai-326667128/',
       github: 'https://github.com/AdiVamsi',
       location: 'San Antonio, TX',
       availability: 'Open to AI Engineer and Backend Engineer roles across the US',

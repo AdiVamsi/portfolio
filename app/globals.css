@@ -261,6 +261,26 @@ section[id] { scroll-margin-top: var(--anchor-offset); }
   padding-inline: 1.5rem;
 }
 
+.chat-shell {
+  width: min(100%, 74rem);
+  margin-inline: auto;
+}
+
+.chat-thread {
+  width: min(100%, 66rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .chat-shell {
+    width: min(70vw, 74rem);
+  }
+
+  .chat-thread {
+    width: min(64vw, 66rem);
+  }
+}
+
 .section-container-scene {
   max-width: 78rem;
 }

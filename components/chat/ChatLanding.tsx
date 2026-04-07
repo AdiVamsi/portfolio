@@ -11,7 +11,7 @@ const SUGGESTIONS = [
   },
   {
     label: 'Projects',
-    question: 'What projects have you built?',
+    question: 'What are your flagship AI and portfolio projects?',
     icon: Briefcase,
   },
   {
@@ -77,7 +77,7 @@ export default function ChatLanding({ onSelect }: ChatLandingProps) {
         </p>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs">
-          {['3+ years', 'Production AI systems', 'Backend engineering', 'US remote or relocation'].map((item) => (
+          {['3+ years', 'Production AI systems', 'RAG + text-to-SQL', 'US remote or relocation'].map((item) => (
             <span
               key={item}
               className="rounded-full border px-3 py-1"

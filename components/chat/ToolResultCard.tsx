@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import {
   ArrowUpRight,
   Briefcase,
+  ChevronRight,
   Download,
   FileText,
   GraduationCap,
@@ -15,6 +16,7 @@ import {
   Sparkles,
   UserRound,
 } from 'lucide-react';
+import type { PortfolioProject } from '@/lib/portfolioProjects';
 
 type PresentationData = {
   name: string;
@@ -31,22 +33,11 @@ type PresentationData = {
   focusAreas?: string[];
 };
 
-type Project = {
-  name: string;
-  category: string;
-  year: string;
-  status: string;
-  role: string;
-  description: string;
-  impact: string;
-  features?: string[];
-  stack?: string[];
-  github?: string;
+type ProjectsData = {
+  projects?: PortfolioProject[];
 };
 
-type ProjectsData = {
-  projects?: Project[];
-};
+type ProjectDetailTab = 'overview' | 'proof' | 'stack' | 'apps';
 
 type SkillGroup = {
   label: string;
@@ -206,6 +197,145 @@ function ActionLink({
   );
 }
 
+function ProjectPickerButton({
+  project,
+  isActive,
+  onSelect,
+}: {
+  project: PortfolioProject;
+  isActive: boolean;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={isActive}
+      className="rounded-[1.4rem] border p-4 text-left transition-all"
+      style={{
+        borderColor: isActive ? 'var(--accent-border)' : 'var(--border)',
+        background: isActive ? 'linear-gradient(180deg, rgba(0,200,150,0.1), rgba(255,255,255,0.92))' : 'var(--surface)',
+        boxShadow: isActive ? '0 10px 26px rgba(0,200,150,0.08)' : 'none',
+      }}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge tone="accent">{project.category}</Badge>
+            <span className="text-[11px] font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
+              {project.year}
+            </span>
+          </div>
+
+          <p className="mt-3 text-sm font-semibold" style={{ color: 'var(--text)' }}>
+            {project.name}
+          </p>
+          <p className="mt-1 text-xs leading-5" style={{ color: 'var(--text-muted)' }}>
+            {project.proofPoints?.[0] ?? project.role}
+          </p>
+        </div>
+
+        <div
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border"
+          style={{
+            borderColor: isActive ? 'var(--accent-border)' : 'var(--border)',
+            color: isActive ? 'var(--accent)' : 'var(--text-muted)',
+            background: 'rgba(255,255,255,0.76)',
+          }}
+        >
+          <ChevronRight size={14} />
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function DetailTabButton({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="rounded-full px-3 py-1.5 text-xs font-medium transition-all"
+      style={{
+        color: active ? 'var(--accent)' : 'var(--text-muted)',
+        background: active ? 'var(--accent-dim)' : 'var(--surface)',
+        border: active ? '1px solid var(--accent-border)' : '1px solid var(--border)',
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
+function CollectionAppsBrowser({ project }: { project: PortfolioProject }) {
+  const subprojects = project.subprojects ?? [];
+  const [selectedAppName, setSelectedAppName] = useState(subprojects[0]?.name ?? '');
+  const selectedApp = subprojects.find((item) => item.name === selectedAppName) ?? subprojects[0];
+
+  if (!selectedApp) return null;
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
+        {subprojects.map((subproject) => (
+          <button
+            key={subproject.name}
+            type="button"
+            onClick={() => setSelectedAppName(subproject.name)}
+            className="rounded-full px-3 py-1.5 text-xs font-medium transition-all"
+            style={{
+              color: selectedApp.name === subproject.name ? 'var(--accent)' : 'var(--text-muted)',
+              background: selectedApp.name === subproject.name ? 'var(--accent-dim)' : 'var(--surface)',
+              border:
+                selectedApp.name === subproject.name
+                  ? '1px solid var(--accent-border)'
+                  : '1px solid var(--border)',
+            }}
+          >
+            {subproject.name}
+          </button>
+        ))}
+      </div>
+
+      <div
+        className="rounded-[1.4rem] border p-4 sm:p-5"
+        style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.82)' }}
+      >
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-lg font-semibold tracking-tight" style={{ color: 'var(--text)' }}>
+              {selectedApp.name}
+            </p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--accent)' }}>
+              {selectedApp.pattern}
+            </p>
+          </div>
+
+          <Badge tone="accent">Inside the collection</Badge>
+        </div>
+
+        <p className="mt-4 text-sm leading-7" style={{ color: 'var(--text-sec)' }}>
+          {selectedApp.summary}
+        </p>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {selectedApp.stack.map((item) => (
+            <Badge key={`${selectedApp.name}-${item}`}>{item}</Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PresentationCard({ data }: { data: PresentationData }) {
   return (
     <SurfaceCard className="mb-3">
@@ -287,79 +417,182 @@ function PresentationCard({ data }: { data: PresentationData }) {
 }
 
 function ProjectsCard({ data }: { data: ProjectsData }) {
+  const projects = data.projects ?? [];
   const statusTone: Record<string, 'neutral' | 'accent'> = {
     live: 'accent',
     active: 'accent',
     complete: 'neutral',
   };
+  const [selectedProjectSlug, setSelectedProjectSlug] = useState(projects[0]?.slug ?? '');
+  const [activeTab, setActiveTab] = useState<ProjectDetailTab>('overview');
+
+  const selectedProject = projects.find((project) => project.slug === selectedProjectSlug) ?? projects[0];
+
+  if (!selectedProject) {
+    return null;
+  }
+
+  const tabs: Array<{ id: ProjectDetailTab; label: string }> = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'proof', label: selectedProject.type === 'collection' ? 'Strengths' : 'Highlights' },
+    { id: 'stack', label: 'Stack' },
+    ...(selectedProject.subprojects?.length ? [{ id: 'apps' as const, label: 'Apps' }] : []),
+  ];
 
   return (
     <SurfaceCard className="mb-3">
-      <SectionLabel icon={Briefcase}>Selected Projects</SectionLabel>
+      <SectionLabel icon={Briefcase}>Project Browser</SectionLabel>
 
-      <div className="space-y-4">
-        {data.projects?.map((project) => (
-          <div
-            key={project.name}
-            className="rounded-[1.6rem] border p-5"
-            style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.76)' }}
-          >
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="accent">{project.category}</Badge>
-                  <Badge tone={statusTone[project.status] || 'neutral'}>
-                    {project.status}
-                  </Badge>
-                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                    {project.year}
-                  </span>
-                </div>
-                <h4 className="mt-3 text-xl font-semibold tracking-tight" style={{ color: 'var(--text)' }}>
-                  {project.name}
-                </h4>
-                <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
-                  {project.role}
-                </p>
-              </div>
-
-              {project.github && <ActionLink href={project.github}>GitHub</ActionLink>}
-            </div>
-
-            <p className="mt-4 text-sm leading-7" style={{ color: 'var(--text-sec)' }}>
-              {project.description}
+      <div
+        className="rounded-[1.6rem] border p-4 sm:p-5"
+        style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.78)' }}
+      >
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em]" style={{ color: 'var(--text-faint)' }}>
+              Browse the work
             </p>
-            <p className="mt-3 text-sm leading-7" style={{ color: 'var(--text)' }}>
-              {project.impact}
+            <p className="mt-2 text-sm leading-6" style={{ color: 'var(--text-muted)' }}>
+              Pick a project to inspect. I keep one in focus so the response stays easy to scan.
             </p>
-
-            <div className="mt-4 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
-                  Highlights
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {project.features?.map((feature) => (
-                    <li key={feature} className="text-sm leading-6" style={{ color: 'var(--text-sec)' }}>
-                      • {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
-                  Stack
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {project.stack?.map((skill) => (
-                    <Badge key={skill}>{skill}</Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
-        ))}
+
+          <Badge tone="accent">{projects.length} selected</Badge>
+        </div>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {projects.map((project) => (
+            <ProjectPickerButton
+              key={project.slug}
+              project={project}
+              isActive={selectedProject.slug === project.slug}
+              onSelect={() => {
+                setSelectedProjectSlug(project.slug);
+                setActiveTab('overview');
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div
+        className="mt-4 rounded-[1.8rem] border p-5 sm:p-6"
+        style={{
+          borderColor: 'var(--border)',
+          background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,248,248,0.96))',
+        }}
+      >
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge tone="accent">{selectedProject.category}</Badge>
+              <Badge tone={statusTone[selectedProject.status] || 'neutral'}>
+                {selectedProject.status}
+              </Badge>
+              <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                {selectedProject.year}
+              </span>
+            </div>
+
+            <h4 className="mt-3 text-2xl font-semibold tracking-tight" style={{ color: 'var(--text)' }}>
+              {selectedProject.name}
+            </h4>
+            <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
+              {selectedProject.role}
+            </p>
+          </div>
+
+          <ActionLink href={selectedProject.github}>GitHub</ActionLink>
+        </div>
+
+        <p className="mt-4 text-sm leading-7" style={{ color: 'var(--text-sec)' }}>
+          {selectedProject.description}
+        </p>
+        <p className="mt-3 text-sm leading-7" style={{ color: 'var(--text)' }}>
+          {selectedProject.impact}
+        </p>
+
+        {selectedProject.proofPoints?.length ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {selectedProject.proofPoints.map((point) => (
+              <Badge key={point}>{point}</Badge>
+            ))}
+          </div>
+        ) : null}
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {tabs.map((tab) => (
+            <DetailTabButton
+              key={tab.id}
+              label={tab.label}
+              active={activeTab === tab.id}
+              onClick={() => setActiveTab(tab.id)}
+            />
+          ))}
+        </div>
+
+        <div
+          className="mt-5 rounded-[1.4rem] border p-4 sm:p-5"
+          style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.78)' }}
+        >
+          {activeTab === 'overview' ? (
+            <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
+                  What it is
+                </p>
+                <p className="mt-3 text-sm leading-7" style={{ color: 'var(--text-sec)' }}>
+                  {selectedProject.description}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
+                  Why it matters
+                </p>
+                <p className="mt-3 text-sm leading-7" style={{ color: 'var(--text-sec)' }}>
+                  {selectedProject.impact}
+                </p>
+              </div>
+            </div>
+          ) : null}
+
+          {activeTab === 'proof' ? (
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
+                {selectedProject.type === 'collection' ? 'Collection strengths' : 'Highlights'}
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {selectedProject.features.map((feature) => (
+                  <div
+                    key={feature}
+                    className="rounded-[1.2rem] border px-4 py-3"
+                    style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}
+                  >
+                    <p className="text-sm leading-6" style={{ color: 'var(--text-sec)' }}>
+                      {feature}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {activeTab === 'stack' ? (
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--text-faint)' }}>
+                Stack
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {selectedProject.stack.map((skill) => (
+                  <Badge key={skill}>{skill}</Badge>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {activeTab === 'apps' ? <CollectionAppsBrowser project={selectedProject} /> : null}
+        </div>
       </div>
     </SurfaceCard>
   );
