@@ -14,25 +14,24 @@ export const getSkills = tool({
       ],
       groups: [
         {
-          label: 'AI / LLM Systems',
+          label: 'Languages',
           color: 'teal',
-          skills: ['OpenAI GPT', 'LangChain', 'LangGraph', 'RAG systems', 'Prompt engineering', 'Fine-tuning', 'AI Agents', 'Multi-agent systems', 'Vector databases', 'Hugging Face'],
+          skills: ['Python', 'Java (8/11)', 'JavaScript', 'TypeScript', 'SQL'],
         },
         {
-          label: 'Backend / APIs',
+          label: 'Backend & Data',
           color: 'blue',
-          skills: ['Python', 'FastAPI', 'Node.js', 'REST APIs', 'PostgreSQL', 'SQL', 'Apache Kafka', 'Microservices'],
+          skills: ['REST APIs', 'Microservices', 'Spring Boot', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Hibernate/JPA', 'WebSockets'],
         },
         {
-          label: 'Cloud / Infrastructure',
+          label: 'AI & Cloud',
           color: 'purple',
-          skills: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Linux', 'Nginx'],
+          skills: ['LangChain', 'LangGraph', 'LLM APIs', 'RAG', 'Prompt Engineering', 'AI Agents', 'PyTorch', 'Docker', 'AWS', 'Git', 'Linux'],
         },
-        {
-          label: 'Frontend / Product',
-          color: 'amber',
-          skills: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Full-stack development'],
-        },
+      ],
+      certifications: [
+        'AWS Certified Cloud Practitioner — Amazon Web Services',
+        'Oracle Certified Professional: Java SE 17 Developer — Oracle',
       ],
       workflowStyle: [
         'I prefer systems where the LLM is grounded by state, tooling, and clear user outcomes.',

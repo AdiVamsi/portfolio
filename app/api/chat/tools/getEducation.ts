@@ -8,7 +8,7 @@ export const getEducation = tool({
     return {
       degrees: [
         {
-          degree: 'Master of Science — Information Technology',
+          degree: 'Master\'s in Information Technology Management',
           school: 'Webster University',
           period: 'Jan 2023 – Jan 2025',
           location: 'San Antonio, TX',
@@ -19,10 +19,10 @@ export const getEducation = tool({
           focus: ['Advanced computing', 'AI systems', 'Data engineering', 'Software architecture', 'Information systems'],
         },
         {
-          degree: 'Bachelor of Engineering — Computer Science',
+          degree: 'Bachelor\'s in Computer Science Engineering',
           school: 'GITAM Deemed University',
           period: 'June 2016 – June 2020',
-          location: 'Visakhapatnam, India',
+          location: 'Hyderabad, India',
           summary:
             'Computer science foundation in core engineering concepts that still shapes how I approach system design and implementation.',
           focus: ['Algorithms', 'Data structures', 'OS', 'Software engineering', 'Databases', 'Distributed systems'],

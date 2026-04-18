@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { ArrowDownRight, Briefcase, Layers, PartyPopper, Send, User, UserSearch } from 'lucide-react';
 import FluidCursor from '@/components/FluidCursor';
 import ProjectsShowcase from '@/components/home/ProjectsShowcase';
+import TheBrief from '@/components/home/TheBrief';
+import FloatingNav from '@/components/home/FloatingNav';
 
 const NAV_ITEMS = [
   { label: 'Me',         icon: User,        question: 'Tell me about yourself',               color: '#0fd9a0' },
@@ -114,6 +116,7 @@ export default function Home() {
               placeholder="Ask me anything…"
               className="flex-1 bg-transparent text-sm outline-none"
               style={{ color: 'var(--text)', caretColor: 'var(--accent)' }}
+              suppressHydrationWarning
             />
             <button
               type="submit"
@@ -189,6 +192,8 @@ export default function Home() {
       </section>
 
       <ProjectsShowcase />
+      <TheBrief />
+      <FloatingNav />
     </main>
   );
 }

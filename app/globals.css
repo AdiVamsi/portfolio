@@ -1055,6 +1055,13 @@ button:focus-visible {
   .dot-accent { animation: none !important; }
 }
 
+/* Brief section — skill pill hover */
+.brief-skill-pill:hover {
+  background: rgba(0,200,150,0.08) !important;
+  border-color: rgba(0,200,150,0.2) !important;
+  color: var(--text) !important;
+}
+
 /* Mobile overrides for hero redesign */
 @media (max-width: 767px) {
   .hero-two-col {

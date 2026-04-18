@@ -23,10 +23,23 @@ export async function POST(req: Request) {
     getResume,
   };
 
+  // Normalize messages: ensure every message has a `parts` array
+  // (DefaultChatTransport sends UIMessages with `parts`, but older
+  // clients or direct calls may send plain {role, content} messages)
+  const normalized = (messages ?? []).map(
+    (msg: Record<string, unknown>) => {
+      if (msg.parts) return msg;
+      return {
+        ...msg,
+        parts: [{ type: 'text', text: String(msg.content ?? '') }],
+      };
+    },
+  );
+
   const result = streamText({
     model: openai('gpt-4o-mini'),
     system: systemPrompt,
-    messages: await convertToModelMessages(messages, { tools }),
+    messages: await convertToModelMessages(normalized, { tools }),
     tools,
     stopWhen: stepCountIs(2),
     toolChoice: 'auto',

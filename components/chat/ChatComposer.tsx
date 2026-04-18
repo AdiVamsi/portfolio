@@ -66,6 +66,7 @@ export default function ChatComposer({
           placeholder="Ask about projects, experience, skills, or how I build AI systems..."
           className="flex-1 bg-transparent text-sm outline-none sm:text-base"
           style={{ color: 'var(--text)', caretColor: 'var(--accent)' }}
+          suppressHydrationWarning
         />
         <button
           type="submit"

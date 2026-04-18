@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import CollapsibleText from './CollapsibleText';
 
 function renderWithLinks(text: string): ReactNode[] {
   const regex = /(https?:\/\/[^\s]+)/g;
@@ -37,7 +38,7 @@ export default function ChatMessageContent({ text }: ChatMessageContentProps) {
     .map((block) => block.trim())
     .filter(Boolean);
 
-  return (
+  const content = (
     <div className="space-y-3">
       {blocks.map((block) => (
         <p key={block} className="whitespace-pre-wrap text-sm leading-7 sm:text-[15px]">
@@ -46,4 +47,6 @@ export default function ChatMessageContent({ text }: ChatMessageContentProps) {
       ))}
     </div>
   );
+
+  return <CollapsibleText>{content}</CollapsibleText>;
 }

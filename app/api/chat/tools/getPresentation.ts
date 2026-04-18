@@ -16,7 +16,7 @@ export const getPresentation = tool({
       tagline: 'Practical AI systems for real workflow use.',
       openTo: 'AI Engineer and Backend Engineer roles across the US',
       visaStatus: 'STEM OPT',
-      metrics: ['3+ years experience', 'Backend + applied AI', 'Python-first', 'Remote or relocation'],
+      metrics: ['3+ years experience', 'Backend + applied AI', 'Python & Java', 'AWS & Oracle certified', 'Immediately available'],
       differentiators: [
         'I focus on AI systems that behave predictably instead of feeling like demos.',
         'I care about workflow ownership, business-state grounding, and clean operational handoffs.',

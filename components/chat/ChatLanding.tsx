@@ -72,8 +72,8 @@ export default function ChatLanding({ onSelect }: ChatLandingProps) {
 
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 sm:text-base"
           style={{ color: 'var(--text-muted)' }}>
-          This is the fastest way for a recruiter, teammate, or client to understand what I build,
-          how I work, and where I can create the most leverage.
+          Ask about my projects, stack, experience, or how I approach building AI systems.
+          This assistant knows everything — just type a question.
         </p>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs">
