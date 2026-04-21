@@ -9,9 +9,11 @@ const FluidCursor = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 z-0">
-      <canvas id="fluid" className="h-screen w-screen" />
-    </div>
+    <canvas
+      id="fluid"
+      className="pointer-events-none fixed inset-0 z-0 h-screen w-screen"
+      style={{ mixBlendMode: 'multiply' }}
+    />
   );
 };
 export default FluidCursor;

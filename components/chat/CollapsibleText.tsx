@@ -1,19 +1,19 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 
 const LINE_HEIGHT = 28; // matches leading-7
 const MAX_LINES = 4;
 const COLLAPSE_THRESHOLD = LINE_HEIGHT * (MAX_LINES + 1);
 
 export default function CollapsibleText({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
   const [needsCollapse, setNeedsCollapse] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => {
-    if (ref.current && ref.current.scrollHeight > COLLAPSE_THRESHOLD) {
-      setNeedsCollapse(true);
+  const ref = useCallback((node: HTMLDivElement | null) => {
+    if (!node) return;
+    if (node.scrollHeight > COLLAPSE_THRESHOLD) {
+      setNeedsCollapse((prev) => prev || true);
     }
   }, []);
 

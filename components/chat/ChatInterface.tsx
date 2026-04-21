@@ -12,7 +12,6 @@ import ChatComposer from './ChatComposer';
 import ChatLanding from './ChatLanding';
 import ChatMessageContent from './ChatMessageContent';
 import ToolResultCard from './ToolResultCard';
-import FluidCursor from '@/components/FluidCursor';
 
 export default function ChatInterface() {
   const router = useRouter();
@@ -71,7 +70,6 @@ export default function ChatInterface() {
 
   return (
     <div className="relative min-h-screen" style={{ background: 'var(--background)' }}>
-      <FluidCursor />
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-10">
         <div
           className="absolute left-1/2 top-24 bottom-28 w-[calc(100%-3rem)] -translate-x-1/2 lg:w-[64vw] lg:max-w-[68rem]"
@@ -151,7 +149,7 @@ export default function ChatInterface() {
             <div className="hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium sm:inline-flex"
               style={{ borderColor: 'var(--border)', color: 'var(--text-sec)', background: 'var(--surface)' }}>
               <Sparkles size={13} style={{ color: 'var(--accent)' }} />
-              GPT-4o mini + tools
+              Gemini 2.5 Flash + tools
             </div>
 
             {hasMessages && (
