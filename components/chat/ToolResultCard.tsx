@@ -21,13 +21,12 @@ import type { PortfolioProject } from '@/lib/portfolioProjects';
 type PresentationData = {
   name: string;
   headline: string;
-  currentRole: string;
+  latestRole: string;
   company: string;
   location: string;
   summary: string;
   tagline: string;
   openTo: string;
-  visaStatus: string;
   metrics?: string[];
   differentiators?: string[];
   focusAreas?: string[];
@@ -92,7 +91,6 @@ type ContactData = {
   github: string;
   location: string;
   availability: string;
-  visaStatus: string;
   preferredContact: string;
   resumeUrl?: string;
   note?: string;
@@ -175,15 +173,18 @@ function SectionLabel({
 function ActionLink({
   href,
   children,
+  download = false,
 }: {
   href: string;
   children: ReactNode;
+  download?: boolean;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      download={download || undefined}
       className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-opacity hover:opacity-80"
       style={{
         borderColor: 'var(--border-accent)',
@@ -192,7 +193,7 @@ function ActionLink({
       }}
     >
       {children}
-      <ArrowUpRight size={15} style={{ color: 'var(--accent)' }} />
+      {download ? <Download size={15} style={{ color: 'var(--accent)' }} /> : <ArrowUpRight size={15} style={{ color: 'var(--accent)' }} />}
     </a>
   );
 }
@@ -351,7 +352,7 @@ function PresentationCard({ data }: { data: PresentationData }) {
             {data.headline}
           </p>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
-            {data.currentRole} at {data.company} · {data.location}
+            Latest role: {data.latestRole} at {data.company} · {data.location}
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-7 sm:text-[15px]" style={{ color: 'var(--text-sec)' }}>
             {data.summary}
@@ -373,10 +374,10 @@ function PresentationCard({ data }: { data: PresentationData }) {
             {data.openTo}
           </p>
           <p className="mt-4 text-sm font-medium" style={{ color: 'var(--text)' }}>
-            Work Authorization
+            Location
           </p>
           <p className="mt-1 text-sm leading-6" style={{ color: 'var(--text-sec)' }}>
-            {data.visaStatus}
+            {data.location}
           </p>
         </div>
       </div>
@@ -832,7 +833,7 @@ function ContactCard({ data }: { data: ContactData }) {
           <ActionLink href={`mailto:${data.email}`}>{data.email}</ActionLink>
           <ActionLink href={data.linkedin}>LinkedIn</ActionLink>
           <ActionLink href={data.github}>GitHub</ActionLink>
-          {data.resumeUrl && <ActionLink href={data.resumeUrl}>Resume</ActionLink>}
+          {data.resumeUrl && <ActionLink href={data.resumeUrl} download>Download Resume</ActionLink>}
         </div>
 
         <div className="rounded-[1.6rem] border p-4" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
@@ -845,7 +846,6 @@ function ContactCard({ data }: { data: ContactData }) {
               <LocateFixed size={16} className="mt-0.5 shrink-0" style={{ color: 'var(--accent)' }} />
               {data.location}
             </p>
-            <p><span style={{ color: 'var(--text)' }}>Work authorization:</span> {data.visaStatus}</p>
             <p><span style={{ color: 'var(--text)' }}>Best contact:</span> {data.preferredContact}</p>
           </div>
         </div>
@@ -890,11 +890,7 @@ function ResumeCard({ data }: { data: ResumeData }) {
             {data.fileName}
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <ActionLink href={data.url}>Open Resume</ActionLink>
-            <ActionLink href={data.url}>
-              <Download size={15} style={{ color: 'var(--accent)' }} />
-              Download
-            </ActionLink>
+            <ActionLink href={data.url} download>Download Resume</ActionLink>
           </div>
         </div>
       </div>

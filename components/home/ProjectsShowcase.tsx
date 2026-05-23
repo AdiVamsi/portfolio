@@ -19,7 +19,7 @@ import {
 type DetailTab = 'overview' | 'proof' | 'stack' | 'apps';
 
 const preferredProject =
-  portfolioProjects.find((project) => project.slug === 'ai-apps-portfolio') ?? portfolioProjects[0];
+  portfolioProjects.find((project) => project.slug === 'indian-sme-engine') ?? portfolioProjects[0];
 
 const orderedProjects = [
   preferredProject,
@@ -248,12 +248,12 @@ export default function ProjectsShowcase() {
             className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl"
             style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}
           >
-            Move through the work, don&apos;t just scroll it.
+            Featured AI and backend systems.
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 sm:text-[15px]" style={{ color: 'var(--text-muted)' }}>
-            This section is meant to feel more like an interactive studio wall: hover through the projects, let the focus
-            shift, and inspect the part you care about without getting hit by everything at once.
+            A focused set of projects showing Python and backend thinking, LLM workflow design, practical automation,
+            and production-minded AI application patterns.
           </p>
         </div>
 
@@ -276,7 +276,7 @@ export default function ProjectsShowcase() {
                   Browse mode
                 </p>
                 <p className="mt-2 text-sm leading-6" style={{ color: 'var(--text-muted)' }}>
-                  Hover a card to shift the spotlight. The right panel animates between systems, and the AI apps collection has its own internal showcase.
+                  Hover or tap a card to inspect the system, stack, and implementation highlights.
                 </p>
               </div>
 

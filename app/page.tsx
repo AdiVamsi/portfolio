@@ -48,7 +48,7 @@ export default function Home() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="mx-auto w-full max-w-2xl text-center"
+          className="mx-auto w-full max-w-[18rem] text-center sm:max-w-2xl"
         >
           {/* Avatar */}
           <motion.div variants={item} className="mb-6 flex justify-center">
@@ -83,26 +83,17 @@ export default function Home() {
 
           <motion.p
             variants={item}
-            className="text-base sm:text-lg"
+            className="mx-auto max-w-[17.5rem] break-words text-[13px] font-medium leading-6 sm:max-w-2xl sm:text-base sm:leading-7"
             style={{ color: 'var(--text-muted)' }}
           >
-            Python Developer &amp; AI Systems Builder
-          </motion.p>
-
-          <motion.p
-            variants={item}
-            className="mx-auto mt-4 max-w-xl text-sm leading-7 sm:text-[15px]"
-            style={{ color: 'var(--text-sec)' }}
-          >
-            I build production-minded AI workflows and a practical applied AI portfolio covering RAG, text-to-SQL,
-            summarization, prompt chaining, and chat systems.
+            AI Engineer | Backend Engineer | Python, APIs, LLM Workflows, Automation | Building Production-Grade AI Systems
           </motion.p>
 
           {/* Chat Input */}
           <motion.form
             variants={item}
             onSubmit={handleSubmit}
-            className="mb-5 mt-8 flex w-full items-center gap-2 rounded-2xl px-4 py-3"
+            className="mx-auto mb-5 mt-8 flex w-full max-w-[17.5rem] items-center gap-2 rounded-2xl px-4 py-3 sm:max-w-none"
             style={{
               border: '1px solid var(--border-accent)',
               background: 'var(--surface)',

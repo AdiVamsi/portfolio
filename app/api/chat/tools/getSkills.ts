@@ -7,38 +7,39 @@ export const getSkills = tool({
   execute: async () => {
     return {
       strengths: [
-        'Production-minded LLM applications',
         'Python backend engineering',
-        'Workflow automation and orchestration',
-        'Fast prototyping with clear product thinking',
+        'REST API development',
+        'LLM workflow integration',
+        'Automation and production reliability',
       ],
       groups: [
         {
           label: 'Languages',
           color: 'teal',
-          skills: ['Python', 'Java (8/11)', 'JavaScript', 'TypeScript', 'SQL'],
+          skills: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
         },
         {
           label: 'Backend & Data',
           color: 'blue',
-          skills: ['REST APIs', 'Microservices', 'Spring Boot', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Hibernate/JPA', 'WebSockets'],
+          skills: ['REST APIs', 'Microservices', 'FastAPI', 'Flask', 'Spring Boot', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Hibernate/JPA', 'WebSockets'],
         },
         {
-          label: 'AI & Cloud',
+          label: 'AI / LLM Engineering',
           color: 'purple',
-          skills: ['LangChain', 'LangGraph', 'LLM APIs', 'RAG', 'Prompt Engineering', 'AI Agents', 'PyTorch', 'Docker', 'AWS', 'Git', 'Linux'],
+          skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch'],
+        },
+        {
+          label: 'Developer Tools',
+          color: 'amber',
+          skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum'],
         },
       ],
-      certifications: [
-        'AWS Certified Cloud Practitioner — Amazon Web Services',
-        'Oracle Certified Professional: Java SE 17 Developer — Oracle',
-      ],
       workflowStyle: [
-        'I prefer systems where the LLM is grounded by state, tooling, and clear user outcomes.',
-        'I think in end-to-end flows: intake, reasoning, action, fallback, and human handoff.',
-        'I care about reliability and operability just as much as model output quality.',
+        'I prefer systems where model calls sit behind clear APIs, validation, retries, and observable workflows.',
+        'I think in end-to-end flows: intake, classification, action, fallback, and handoff.',
+        'I care about backend reliability as much as output quality.',
       ],
-      deepeningIn: ['LangGraph agents', 'Multi-agent systems', 'Fine-tuning', 'Production LLM ops'],
+      deepeningIn: ['LangGraph agents', 'Multi-agent systems', 'RAG evaluation', 'Production LLM ops'],
     };
   },
 });

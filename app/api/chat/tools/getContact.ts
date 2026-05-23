@@ -8,13 +8,13 @@ export const getContact = tool({
     return {
       email: 'adivamsi1998@gmail.com',
       phone: '+1 361-300-5950',
-      linkedin: 'https://www.linkedin.com/in/adi-vamsi-sai-326667128/',
+      linkedin: 'https://www.linkedin.com/in/adi-m-326667128/',
       github: 'https://github.com/AdiVamsi',
       location: 'San Antonio, TX',
-      availability: 'Open to AI Engineer and Backend Engineer roles across the US — immediately available',
-      visaStatus: 'STEM OPT authorized',
+      availability:
+        'Open to AI Engineer, Applied AI Engineer, GenAI Engineer, LLM Application Engineer, Backend Engineer, and Software Engineer roles across the US.',
       preferredContact: 'Email or LinkedIn',
-      resumeUrl: '/resume.pdf',
+      resumeUrl: '/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
       note:
         'Happy to share more detail on architecture choices, project walkthroughs, and recent AI workflow work.',
     };

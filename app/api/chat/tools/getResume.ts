@@ -7,15 +7,15 @@ export const getResume = tool({
   execute: async () => {
     return {
       title: 'Adi Vamsi Sai Resume',
-      fileName: 'Adi_Vamsi_Sai_Resume.pdf',
-      url: '/resume.pdf',
+      fileName: 'Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
+      url: '/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
       summary:
-        'A concise snapshot of my backend engineering, applied AI systems work, project experience, and education.',
+        'A concise snapshot of my AI engineering, backend engineering, Python API work, LLM workflow projects, and education.',
       highlights: [
-        '3+ years spanning backend systems, workflow automation, and applied AI',
-        'Current Python Developer building practical LLM-enabled workflows',
-        'Strong overlap with AI Engineer and Backend Engineer roles',
-        'Graduate degree in Information Technology with a 3.8 GPA',
+        'Python Developer experience at Capgemini focused on APIs, automation, LLM integrations, and backend reliability',
+        'Software Engineer experience at New Relic building Java/Spring Boot backend services for observability workflows',
+        'Independent AI projects across RAG, Text-to-SQL, prompt chaining, agentic workflows, and LLM-powered CRM systems',
+        'Master’s degree in Information Technology from Webster University with a 3.6/4.0 GPA',
       ],
     };
   },

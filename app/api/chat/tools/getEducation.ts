@@ -8,20 +8,19 @@ export const getEducation = tool({
     return {
       degrees: [
         {
-          degree: 'Master\'s in Information Technology Management',
+          degree: 'Master’s degree, Information Technology',
           school: 'Webster University',
-          period: 'Jan 2023 – Jan 2025',
+          period: 'Jan 2023 – May 2024',
           location: 'San Antonio, TX',
-          gpa: '3.8',
-          distinction: true,
+          gpa: '3.6/4.0',
           summary:
-            'Graduate work that strengthened my systems thinking across AI, data, and software architecture.',
-          focus: ['Advanced computing', 'AI systems', 'Data engineering', 'Software architecture', 'Information systems'],
+            'Graduate work focused on information technology, systems thinking, software delivery, and applied technical problem solving.',
+          focus: ['Information Technology', 'Software systems', 'Data and analytics', 'IT management'],
         },
         {
-          degree: 'Bachelor\'s in Computer Science Engineering',
+          degree: 'Bachelor’s degree, Computer Science Engineering',
           school: 'GITAM Deemed University',
-          period: 'June 2016 – June 2020',
+          period: 'Jun 2016 – Jun 2020',
           location: 'Hyderabad, India',
           summary:
             'Computer science foundation in core engineering concepts that still shapes how I approach system design and implementation.',

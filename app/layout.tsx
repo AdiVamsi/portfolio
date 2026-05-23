@@ -22,14 +22,19 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
   description:
-    'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI products including RAG, text-to-SQL, summarization, and prompt-chaining apps. 3+ years across backend systems and applied AI. Open to AI Engineer and Backend Engineer roles across the U.S.',
+    'AI Engineer and Backend Engineer focused on Python, APIs, LLM workflows, automation, and production-grade AI systems across RAG, Text-to-SQL, agentic workflows, and backend reliability.',
   keywords: [
     'Adi Vamsi Sai',
     'AI Engineer',
     'Backend Engineer',
-    'LLM Engineer',
     'Applied AI Engineer',
+    'GenAI Engineer',
+    'LLM Engineer',
+    'LLM Application Engineer',
+    'Software Engineer',
     'Python Developer',
+    'Python',
+    'APIs',
     'LLM Applications',
     'RAG',
     'Text-to-SQL',
@@ -41,7 +46,8 @@ export const metadata: Metadata = {
     'PostgreSQL',
     'REST APIs',
     'Spring Boot',
-    'STEM OPT',
+    'FastAPI',
+    'Flask',
     'San Antonio',
   ],
   authors: [{ name: 'Adi Vamsi Sai' }],
@@ -51,14 +57,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI apps across RAG, text-to-SQL, summarization, and automation.',
+      'Python and backend engineer building APIs, LLM workflows, automation, and production-grade AI systems.',
     siteName: 'Adi Vamsi Sai — Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Adi Vamsi Sai — AI Engineer & Backend Engineer',
     description:
-      'Python-native engineer building production AI systems, LLM workflows, backend APIs, and applied AI apps.',
+      'AI Engineer and Backend Engineer focused on Python, APIs, LLM workflows, automation, and production-grade AI systems.',
   },
   robots: {
     index: true,

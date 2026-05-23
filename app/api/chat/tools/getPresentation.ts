@@ -7,22 +7,23 @@ export const getPresentation = tool({
   execute: async () => {
     return {
       name: 'Adi Vamsi Sai Maddirala',
-      headline: 'Python Developer and AI Systems Builder',
-      currentRole: 'Python Developer',
-      company: 'DATARA',
+      headline:
+        'AI Engineer | Backend Engineer | Python, APIs, LLM Workflows, Automation | Building Production-Grade AI Systems',
+      latestRole: 'Python Developer',
+      company: 'Capgemini',
       location: 'San Antonio, TX',
       summary:
-        'I build production AI systems that connect language models to real backend workflows, reliable data, and clear human handoffs. My background sits at the intersection of backend engineering, workflow automation, and applied AI.',
-      tagline: 'Practical AI systems for real workflow use.',
-      openTo: 'AI Engineer and Backend Engineer roles across the US',
-      visaStatus: 'STEM OPT',
-      metrics: ['3+ years experience', 'Backend + applied AI', 'Python & Java', 'AWS & Oracle certified', 'Immediately available'],
+        'I’m a Python and backend developer focused on building APIs, automation workflows, and AI-enabled systems that solve real business problems. My work spans Python backend development, LLM API integrations, workflow automation, REST APIs, and production reliability improvements.',
+      tagline: 'Production-grade AI systems for real workflow use.',
+      openTo:
+        'AI Engineer, Applied AI Engineer, GenAI Engineer, LLM Application Engineer, Backend Engineer, and Software Engineer roles',
+      metrics: ['Python + APIs', 'LLM workflows', 'Automation systems', 'Backend reliability', '3+ years experience'],
       differentiators: [
-        'I focus on AI systems that behave predictably instead of feeling like demos.',
-        'I care about workflow ownership, business-state grounding, and clean operational handoffs.',
-        'I enjoy shipping products where LLMs are one part of a dependable system, not the whole system.',
+        'I focus on AI systems that connect model calls to dependable backend workflows.',
+        'I care about clear inputs, observability, validation, retries, and human handoff paths.',
+        'I build independent AI projects across RAG, Text-to-SQL, prompt chaining, and agentic workflows.',
       ],
-      focusAreas: ['LLM applications', 'Workflow automation', 'Backend APIs', 'Production AI UX'],
+      focusAreas: ['Python backend services', 'REST APIs', 'LLM applications', 'Workflow automation', 'Production AI systems'],
     };
   },
 });

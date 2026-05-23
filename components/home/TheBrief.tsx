@@ -7,34 +7,34 @@ import { Briefcase, GraduationCap, Signal, Cpu, MapPin, FileCheck } from 'lucide
 const experience = [
   {
     title: 'Python Developer',
-    company: 'DATARA Pvt Ltd',
-    period: '2025 – Present',
+    company: 'Capgemini',
+    period: 'Jul 2024 – May 2026',
     current: true,
-    focus: 'Async Python backends, LLM API integration, 20% throughput gain',
-    stack: ['Python', 'LLM APIs', 'REST APIs'],
+    focus: 'Python backend services, API integrations, LLM workflows, 20% processing speed improvement',
+    stack: ['Python', 'REST APIs', 'LLM APIs'],
   },
   {
-    title: 'Junior Software Engineer',
-    company: 'XRG Consulting (New Relic)',
-    period: '2020 – 2022',
+    title: 'Software Engineer',
+    company: 'New Relic',
+    period: 'Jun 2020 – Dec 2022',
     current: false,
-    focus: 'Java/Spring Boot observability platform, millions of daily queries',
-    stack: ['Java', 'Spring Boot', 'Hibernate'],
+    focus: 'Java/Spring Boot backend services for high-volume observability microservices',
+    stack: ['Java', 'Spring Boot', 'Hibernate/JPA'],
   },
 ];
 
 const education = [
   {
-    degree: 'MS Information Technology Management',
+    degree: 'Master’s degree, Information Technology',
     school: 'Webster University',
-    detail: '3.8 GPA',
-    year: '2023 \u2013 2025',
+    detail: 'San Antonio, TX · Grade: 3.6/4.0',
+    year: 'Jan 2023 – May 2024',
   },
   {
-    degree: 'BS Computer Science Engineering',
+    degree: 'Bachelor’s degree, Computer Science Engineering',
     school: 'GITAM Deemed University',
     detail: 'Hyderabad, India',
-    year: '2016 \u2013 2020',
+    year: 'Jun 2016 – Jun 2020',
   },
 ];
 
@@ -42,17 +42,22 @@ const skillGroups = [
   {
     label: 'Languages',
     color: '#00c896',
-    skills: ['Python', 'Java (8/11)', 'JavaScript', 'TypeScript', 'SQL'],
+    skills: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
   },
   {
     label: 'Backend & Data',
     color: '#a78bfa',
-    skills: ['REST APIs', 'Microservices', 'Spring Boot', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Hibernate/JPA', 'WebSockets'],
+    skills: ['REST APIs', 'Microservices', 'FastAPI', 'Flask', 'Spring Boot', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Hibernate/JPA', 'WebSockets'],
   },
   {
-    label: 'AI & Cloud',
+    label: 'AI / LLM Engineering',
     color: '#fbbf24',
-    skills: ['LangChain', 'LangGraph', 'LLM APIs', 'RAG', 'Prompt Eng.', 'AI Agents', 'PyTorch', 'Docker', 'AWS', 'Linux'],
+    skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch'],
+  },
+  {
+    label: 'Developer Tools',
+    color: '#60a5fa',
+    skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum'],
   },
 ];
 
@@ -170,7 +175,7 @@ export default function TheBrief() {
                         style={{ color: 'var(--accent)', background: 'var(--accent-dim)', border: '1px solid var(--accent-border)' }}
                       >
                         <span className="dot-accent" style={{ width: '5px', height: '5px' }} />
-                        Now
+                        Latest
                       </span>
                     )}
                   </div>
@@ -209,13 +214,13 @@ export default function TheBrief() {
               <div className="flex items-center gap-2">
                 <MapPin size={13} style={{ color: 'var(--accent)' }} />
                 <p className="text-xs font-medium" style={{ color: 'var(--text-sec)' }}>
-                  San Antonio, TX &middot; Open to relocate
+                  San Antonio, TX &middot; Remote-friendly
                 </p>
               </div>
               <div className="mt-2 flex items-center gap-2">
                 <FileCheck size={13} style={{ color: 'var(--accent)' }} />
                 <p className="text-xs font-medium" style={{ color: 'var(--text-sec)' }}>
-                  STEM OPT &middot; Immediately available
+                  Immediately available &middot; AI and backend roles
                 </p>
               </div>
             </div>
@@ -279,10 +284,10 @@ export default function TheBrief() {
               }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: 'var(--accent)' }}>
-                Certified
+                Role Focus
               </p>
               <p className="mt-1.5 text-xs leading-5" style={{ color: 'var(--text-sec)' }}>
-                AWS Cloud Practitioner &middot; Oracle Java SE 17 Developer
+                Python APIs &middot; LLM workflows &middot; automation &middot; backend reliability
               </p>
             </div>
           </motion.div>
@@ -357,13 +362,13 @@ export default function TheBrief() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
-                    6
+                    3
                   </p>
-                  <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Shipped projects</p>
+                  <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Featured projects</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
-                    3.8
+                    3.6
                   </p>
                   <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>GPA (MS)</p>
                 </div>
@@ -378,9 +383,10 @@ export default function TheBrief() {
 
             {/* Resume CTA */}
             <a
-              href="/resume.pdf"
+              href="/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              download
               className="mt-5 flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-all hover:opacity-85"
               style={{
                 borderColor: 'var(--accent-border)',
@@ -388,7 +394,7 @@ export default function TheBrief() {
                 background: 'linear-gradient(180deg, rgba(0,200,150,0.12), rgba(0,200,150,0.06))',
               }}
             >
-              View full resume
+              Download Resume
               <span style={{ color: 'var(--accent)' }}>&nearr;</span>
             </a>
           </motion.div>
