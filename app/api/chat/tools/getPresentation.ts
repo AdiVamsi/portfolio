@@ -8,20 +8,20 @@ export const getPresentation = tool({
     return {
       name: 'Adi Vamsi Sai Maddirala',
       headline:
-        'AI Engineer | Backend Engineer | Python, APIs, LLM Workflows, Automation | Building Production-Grade AI Systems',
+        'GenAI Engineer | Agentic Systems & RAG | Python, AWS, Full-Stack | Building Production-Grade AI Systems',
       latestRole: 'Python Developer',
       company: 'Capgemini',
       location: 'San Antonio, TX',
       summary:
-        'I’m a Python and backend developer focused on building APIs, automation workflows, and AI-enabled systems that solve real business problems. My work spans Python backend development, LLM API integrations, workflow automation, REST APIs, and production reliability improvements.',
+        'I’m a GenAI engineer with 4+ years building production-style LLM applications and agentic systems in Python — RAG, multi-agent orchestration, embeddings and vector retrieval, and natural-language interfaces — on a strong backend, full-stack, and AWS foundation. I ship evaluable, guardrailed AI features end to end and optimize for reliability and performance.',
       tagline: 'Production-grade AI systems for real workflow use.',
       openTo:
         'AI Engineer, Applied AI Engineer, GenAI Engineer, LLM Application Engineer, Backend Engineer, and Software Engineer roles',
-      metrics: ['Python + APIs', 'LLM workflows', 'Automation systems', 'Backend reliability', '3+ years experience'],
+      metrics: ['GenAI + Agentic Systems', 'Python + APIs', 'RAG & Multi-Agent', 'AWS Certified', '4+ years experience'],
       differentiators: [
         'I focus on AI systems that connect model calls to dependable backend workflows.',
         'I care about clear inputs, observability, validation, retries, and human handoff paths.',
-        'I build independent AI projects across RAG, Text-to-SQL, prompt chaining, and agentic workflows.',
+        'I build independent AI projects across RAG, multi-agent orchestration, LLM observability, and agentic workflows.',
       ],
       focusAreas: ['Python backend services', 'REST APIs', 'LLM applications', 'Workflow automation', 'Production AI systems'],
     };
