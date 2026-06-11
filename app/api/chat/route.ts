@@ -8,6 +8,7 @@ import { getEducation } from './tools/getEducation';
 import { getContact } from './tools/getContact';
 import { getResume } from './tools/getResume';
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit';
+import { checkDailyQuestionLimit, DAILY_QUESTION_LIMIT } from '@/lib/dailyLimit';
 import { google } from '@ai-sdk/google';
 
 export const maxDuration = 30;
@@ -32,6 +33,19 @@ export async function POST(req: Request) {
   const messages = (body as { messages?: unknown })?.messages;
   if (!Array.isArray(messages) || messages.length === 0) {
     return Response.json({ error: 'Missing or empty messages array' }, { status: 400 });
+  }
+
+  const daily = checkDailyQuestionLimit(req);
+  if (!daily.allowed) {
+    return Response.json(
+      {
+        error:
+          `I keep this assistant capped at ${DAILY_QUESTION_LIMIT} questions a day to keep it sustainable, ` +
+          `and you've reached that limit. It resets at midnight UTC — in the meantime, feel free to grab my ` +
+          `résumé or reach out directly at adivamsi1998@gmail.com.`,
+      },
+      { status: 429, headers: { 'Set-Cookie': daily.setCookie } },
+    );
   }
 
   const tools = {
@@ -64,5 +78,7 @@ export async function POST(req: Request) {
     toolChoice: 'auto',
   });
 
-  return result.toUIMessageStreamResponse({ originalMessages: messages });
+  const response = result.toUIMessageStreamResponse({ originalMessages: messages });
+  response.headers.set('Set-Cookie', daily.setCookie);
+  return response;
 }
