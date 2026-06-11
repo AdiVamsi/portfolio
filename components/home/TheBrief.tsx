@@ -52,12 +52,17 @@ const skillGroups = [
   {
     label: 'AI / LLM Engineering',
     color: '#fbbf24',
-    skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch'],
+    skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch', 'Function/Tool Calling', 'Structured Outputs', 'Output Guardrails', 'Evaluation & Feedback Loops', 'LLM Fine-Tuning'],
   },
   {
     label: 'Developer Tools',
     color: '#60a5fa',
-    skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum'],
+    skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum', 'CI/CD', 'Monitoring/Observability'],
+  },
+  {
+    label: 'Certifications',
+    color: '#00c896',
+    skills: ['AWS Certified Cloud Practitioner', 'Oracle Certified Professional: Java SE 17 Developer'],
   },
 ];
 
@@ -356,13 +361,13 @@ export default function TheBrief() {
               <div className="mt-3 grid grid-cols-2 gap-3">
                 <div>
                   <p className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
-                    3+
+                    4+
                   </p>
                   <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Years experience</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
-                    3
+                    7
                   </p>
                   <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Featured projects</p>
                 </div>
@@ -374,7 +379,7 @@ export default function TheBrief() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold tracking-tight" style={{ color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
-                    AI
+                    GenAI
                   </p>
                   <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Primary focus</p>
                 </div>
@@ -383,7 +388,7 @@ export default function TheBrief() {
 
             {/* Resume CTA */}
             <a
-              href="/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf"
+              href="/Adi_Vamsi_Sai_Resume_GenAI_Engineer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download

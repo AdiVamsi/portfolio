@@ -15,14 +15,15 @@ export const getExperience = tool({
           current: false,
           location: 'San Antonio, TX / Remote',
           summary:
-            'Built Python backend services for automation, data processing, API integrations, and internal business workflows used by cross-functional teams.',
+            'Built Python LLM applications and backend services for automation, data processing, API integrations, and internal business workflows used by cross-functional teams.',
           highlights: [
             'Built and maintained Python backend services for automation, data processing, API integrations, and internal business workflows used by cross-functional teams',
             'Improved backend processing speed by 20% by optimizing SQL queries, refactoring service logic, and reducing unnecessary API calls',
             'Integrated LLM APIs into classification and extraction workflows, reducing repetitive manual review effort by 35%',
             'Added structured logging, exception handling, input validation, and retry logic across backend modules, lowering recurring production issues by 15%',
             'Reduced critical backend issue resolution time from 48 hours to 12 hours through debugging workflows, sprint delivery, and release support',
-            'Collaborated with product, QA, and engineering teams to deliver backend fixes, API enhancements, and automation features in Agile sprint cycles',
+            'Coached teammates and documented setup and demo flows for backend and AI features, improving onboarding and developer velocity',
+            'Designed reusable LLM integration patterns — prompt engineering, structured outputs, and output validation guardrails — for consistent, reliable AI behavior across workflows',
           ],
           impact:
             'This role connects my backend foundation with practical AI and automation work: shipping APIs, improving reliability, and applying LLMs where they reduce manual effort.',

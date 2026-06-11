@@ -7,15 +7,15 @@ export const getResume = tool({
   execute: async () => {
     return {
       title: 'Adi Vamsi Sai Resume',
-      fileName: 'Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
-      url: '/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
+      fileName: 'Adi_Vamsi_Sai_Resume_GenAI_Engineer.pdf',
+      url: '/Adi_Vamsi_Sai_Resume_GenAI_Engineer.pdf',
       summary:
-        'A concise snapshot of my AI engineering, backend engineering, Python API work, LLM workflow projects, and education.',
+        'A concise snapshot of my GenAI engineering, agentic systems, RAG, backend, and full-stack work, plus AWS and Java certifications.',
       highlights: [
-        'Python Developer experience at Capgemini focused on APIs, automation, LLM integrations, and backend reliability',
+        'Python Developer experience at Capgemini focused on LLM applications, reusable integration patterns, guardrails, and backend reliability',
         'Software Engineer experience at New Relic building Java/Spring Boot backend services for observability workflows',
-        'Independent AI projects across RAG, Text-to-SQL, prompt chaining, agentic workflows, and LLM-powered CRM systems',
-        'Master’s degree in Information Technology from Webster University with a 3.6/4.0 GPA',
+        'Independent AI projects across RAG, multi-agent orchestration, LLM observability, and LLM-powered CRM systems',
+        'AWS Certified Cloud Practitioner and Oracle Certified Professional, Java SE 17 Developer',
       ],
     };
   },

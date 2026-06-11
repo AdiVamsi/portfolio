@@ -12,9 +12,9 @@ export const getContact = tool({
       github: 'https://github.com/AdiVamsi',
       location: 'San Antonio, TX',
       availability:
-        'Open to AI Engineer, Applied AI Engineer, GenAI Engineer, LLM Application Engineer, Backend Engineer, and Software Engineer roles across the US.',
+        'Open to AI Engineer, Applied AI Engineer, GenAI Engineer, LLM Application Engineer, Backend Engineer, and Software Engineer roles across the US. Open to relocation and immediately available.',
       preferredContact: 'Email or LinkedIn',
-      resumeUrl: '/Adi_Vamsi_Sai_AI_Engineer_Resume.pdf',
+      resumeUrl: '/Adi_Vamsi_Sai_Resume_GenAI_Engineer.pdf',
       note:
         'Happy to share more detail on architecture choices, project walkthroughs, and recent AI workflow work.',
     };

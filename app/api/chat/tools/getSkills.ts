@@ -26,12 +26,17 @@ export const getSkills = tool({
         {
           label: 'AI / LLM Engineering',
           color: 'purple',
-          skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch'],
+          skills: ['OpenAI API', 'Claude', 'Gemini', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'AI Agents', 'Agentic Orchestration', 'Embeddings', 'Vector Search', 'ChromaDB', 'Ollama', 'PyTorch', 'Function/Tool Calling', 'Structured Outputs', 'Output Guardrails', 'Evaluation & Feedback Loops', 'LLM Fine-Tuning'],
         },
         {
           label: 'Developer Tools',
           color: 'amber',
-          skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum'],
+          skills: ['Cursor', 'Google Antigravity', 'Claude Code', 'Codex', 'Git', 'Docker', 'Linux', 'AWS', 'Streamlit', 'Agile/Scrum', 'CI/CD', 'Monitoring/Observability'],
+        },
+        {
+          label: 'Certifications',
+          color: 'teal',
+          skills: ['AWS Certified Cloud Practitioner', 'Oracle Certified Professional: Java SE 17 Developer'],
         },
       ],
       workflowStyle: [

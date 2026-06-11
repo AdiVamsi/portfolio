@@ -5,13 +5,26 @@ import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport, getToolName, isToolUIPart } from 'ai';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AlertCircle, ArrowLeft, RotateCcw, Sparkles } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import ChatComposer from './ChatComposer';
 import ChatLanding from './ChatLanding';
 import ChatMessageContent from './ChatMessageContent';
 import ToolResultCard from './ToolResultCard';
+import { getRemainingQuestionsFromCookie } from '@/lib/dailyLimit';
+
+function subscribeToCookie() {
+  return () => {};
+}
+
+function getCookieSnapshot() {
+  return document.cookie;
+}
+
+function getServerCookieSnapshot() {
+  return '';
+}
 
 export default function ChatInterface() {
   const router = useRouter();
@@ -19,6 +32,8 @@ export default function ChatInterface() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const startedRef = useRef(false);
   const [input, setInput] = useState('');
+  const cookieString = useSyncExternalStore(subscribeToCookie, getCookieSnapshot, getServerCookieSnapshot);
+  const remainingQuestions = getRemainingQuestionsFromCookie(cookieString);
 
   const {
     messages,
@@ -151,6 +166,13 @@ export default function ChatInterface() {
               <Sparkles size={13} style={{ color: 'var(--accent)' }} />
               Gemini 2.5 Flash + tools
             </div>
+
+            {remainingQuestions !== null && (
+              <div className="hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium sm:inline-flex"
+                style={{ borderColor: 'var(--border)', color: 'var(--text-sec)', background: 'var(--surface)' }}>
+                {remainingQuestions} question{remainingQuestions === 1 ? '' : 's'} left today
+              </div>
+            )}
 
             {hasMessages && (
               <button
